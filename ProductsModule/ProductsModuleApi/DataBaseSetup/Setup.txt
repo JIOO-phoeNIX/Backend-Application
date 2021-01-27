@@ -1,7 +1,7 @@
 ﻿This link will help in installing MySQL and MySQL Workbench https://www.youtube.com/watch?v=u96rVINbAUI
 
-After installing MySQL and MySQL Workbench, create a new Schema "productmodule". Next, 
-Import the Dump20210127 folder, this will setup the tables and initial data.
+After installing MySQL and MySQL Workbench, create a new Schema "productmodule". Next, import the Dump20210127 folder
+(https://github.com/JIOO-phoeNIX/Backend-Application/tree/main/ProductsModule/ProductsModuleApi/DataBaseSetup/Dump20210127), this will setup the tables and initial data.
 
 In the appsettings.json file, replace the {databasepassword} with your MySQL password.
 
