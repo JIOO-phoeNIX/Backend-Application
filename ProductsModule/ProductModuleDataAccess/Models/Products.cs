@@ -28,5 +28,13 @@ namespace ProductModuleDataAccess.Models
 
         public int typeid { get; set; }
         public Types Type { get; set; }
+
+        public override string ToString()
+        {
+            return $"productsid : {productsid}\n" +
+                $"name: {name}\n description : {description}\n " +
+                $"userid : {userid}\n contactid : {contactid}\n" +
+                $"Contact : {Contact.ToString()}\n typeid : {typeid}\n Type : {Type.ToString()}";
+        }
     }
 }

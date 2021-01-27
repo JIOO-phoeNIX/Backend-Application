@@ -14,6 +14,11 @@ namespace ProductModuleDataAccess.Implementations
         private readonly ProducrModuleDbContext _dbContext;
         private readonly IUserService _userService;
 
+        public ProductsService()
+        {
+
+        }
+
         public ProductsService(ProducrModuleDbContext dbContext, IUserService userService)
         {
             _dbContext = dbContext;

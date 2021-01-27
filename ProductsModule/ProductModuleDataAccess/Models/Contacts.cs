@@ -15,5 +15,11 @@ namespace ProductModuleDataAccess.Models
 
         [Required]
         public string mobileno { get; set; }
+
+        public override string ToString()
+        {
+            return $"contactsid : {contactsid}\n" +
+                $"name: {name}\n mobileno : {mobileno}";
+        }
     }
 }

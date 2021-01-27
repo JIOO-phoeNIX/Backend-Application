@@ -12,5 +12,10 @@ namespace ProductModuleDataAccess.Models
 
         [Required]
         public string name { get; set; }
+
+        public override string ToString()
+        {
+            return $"typesid : {typesid}\n name: {name}";
+        }
     }
 }
