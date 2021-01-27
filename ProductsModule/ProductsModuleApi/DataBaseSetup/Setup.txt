@@ -12,7 +12,7 @@ GET /api/Products/allproducts - used to get all the products
 GET /api/Products - used to get all the products 
 GET /api/Products/{id} - used to return a single Product.
 
-POST /api/Products - Used to crrate a new Product. The format of the input is:
+POST /api/Products - Used to create a new Product. The format of the input is:
 {
   "name": "name of the product",
   "description": "description of the product",
@@ -21,7 +21,7 @@ POST /api/Products - Used to crrate a new Product. The format of the input is:
   "typeid": same as contactid only 1 and 2 is allowed.
 }
 
-DELETE ​/api​/Products​/{id} - to delete a Product
+DELETE /api/Products/{id} - to delete a Product
 
 PATCH /api/Products/{id} - to update the details of a Product
 
