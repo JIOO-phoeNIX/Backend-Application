@@ -20,6 +20,21 @@ namespace ProductModuleDataAccess.Implementations
             _userService = userService;
         }
 
+        public async Task<Products> CreateProduct(Products products)
+        {
+            try
+            {
+                var result = await _dbContext.products.AddAsync(products);
+                await _dbContext.SaveChangesAsync();
+
+                return result.Entity;
+            }
+            catch (Exception ex)
+            {
+                return null;            
+            }            
+        }
+
         public async Task<List<Products>> GetAllProducts()
         {
             var allProducts = _dbContext.products

@@ -6,4 +6,3 @@ C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductModuleDataA
 C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductModuleDataAccess\obj\Debug\netstandard2.0\ProductModuleDataAccess.csproj.CoreCompileInputs.cache
 C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductModuleDataAccess\obj\Debug\netstandard2.0\ProductModuleDataAccess.dll
 C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductModuleDataAccess\obj\Debug\netstandard2.0\ProductModuleDataAccess.pdb
-C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductModuleDataAccess\obj\Debug\netstandard2.0\ProductModuleDataAccess.csprojAssemblyReference.cache

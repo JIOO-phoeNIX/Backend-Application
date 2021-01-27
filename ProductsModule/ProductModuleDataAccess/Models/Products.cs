@@ -18,6 +18,7 @@ namespace ProductModuleDataAccess.Models
         public string description { get; set; }
 
         [Required]
+        [Range(minimum: 1, maximum: 10)]
         public int userid { get; set; }
         [NotMapped]
         public User user { get; set; } = null;

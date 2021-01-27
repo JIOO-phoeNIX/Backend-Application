@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProductModuleDataAccess.Interfaces;
 using ProductModuleDataAccess.Models;
+using ProductsModuleApi.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +15,13 @@ namespace ProductsModuleApi.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductsService _products;        
+        private readonly IProductsService _products;
+        private readonly IMapper _mapper;
 
-        public ProductsController(IProductsService products)
+        public ProductsController(IProductsService products, IMapper mapper)
         {
-            _products = products;            
+            _products = products;
+            _mapper = mapper;
         }
 
         [HttpGet("allproducts")]
@@ -42,6 +46,23 @@ namespace ProductsModuleApi.Controllers
                 return BadRequest($"Product with id : {id} doesn't exit");
 
             return Ok(product);
+        }  
+
+        [HttpPost("")]
+        [ProducesResponseType(typeof(Products), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> CreateProduct([FromBody]CreateProductModel createProductModel)
+        {
+            var productToCreate = _mapper.Map<Products>(createProductModel);
+
+            var productCreated = await _products.CreateProduct(productToCreate);
+
+            if (productCreated == null)
+                return BadRequest("Error occured please check details and try again");
+
+            var productCreatedFullDetails = await _products.GetById(productCreated.productsid);
+
+            return CreatedAtAction(nameof(GetProduct), new { id = productCreated.productsid }, productCreatedFullDetails);            
         }
-    }
+    } 
 }

@@ -11,5 +11,7 @@ namespace ProductModuleDataAccess.Interfaces
         Task<List<Products>> GetAllProducts();
 
         Task<Products> GetById(int id);
+
+        Task<Products> CreateProduct(Products products);
     }
 }
