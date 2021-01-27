@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProductsModuleApi.Model
 {
-    public class CreateProductModel
+    public class ProductModel
     {
         [Required(ErrorMessage = "Name is required")]
         public string name { get; set; }

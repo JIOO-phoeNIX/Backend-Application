@@ -15,5 +15,7 @@ namespace ProductModuleDataAccess.Interfaces
         Task<Products> CreateProduct(Products products);
 
         Task DeleteProduct(Products productToDelete);
+
+        Task<Products> UpdateProduct(Products products);
     }
 }

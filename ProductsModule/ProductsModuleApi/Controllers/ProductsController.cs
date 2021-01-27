@@ -30,7 +30,7 @@ namespace ProductsModuleApi.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetAllProducts()
         {
-            var allProducts = await _products.GetAllProducts();                      
+            var allProducts = await _products.GetAllProducts();
 
             return Ok(allProducts);
         }
@@ -46,12 +46,12 @@ namespace ProductsModuleApi.Controllers
                 return BadRequest($"Product with id : {id} doesn't exit");
 
             return Ok(product);
-        }  
+        }
 
         [HttpPost("")]
         [ProducesResponseType(typeof(Products), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> CreateProduct([FromBody]CreateProductModel createProductModel)
+        public async Task<IActionResult> CreateProduct([FromBody] ProductModel createProductModel)
         {
             var productToCreate = _mapper.Map<Products>(createProductModel);
 
@@ -62,10 +62,12 @@ namespace ProductsModuleApi.Controllers
 
             var productCreatedFullDetails = await _products.GetById(productCreated.productsid);
 
-            return CreatedAtAction(nameof(GetProduct), new { id = productCreated.productsid }, productCreatedFullDetails);            
+            return CreatedAtAction(nameof(GetProduct), new { id = productCreated.productsid }, productCreatedFullDetails);
         }
 
         [HttpDelete("{id:int}")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var product = await _products.GetById(id);
@@ -76,6 +78,23 @@ namespace ProductsModuleApi.Controllers
             await _products.DeleteProduct(product);
 
             return Ok("Deleted successfully");
+        }
+
+        [HttpPatch("{id:int}")]
+        [ProducesResponseType(typeof(Products), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> UpdateProduct([FromRoute] int id, [FromBody] ProductModel createProductModel)
+        {
+            var productToUpdate = _mapper.Map<Products>(createProductModel);
+            productToUpdate.productsid = id;
+            var updatedProduct = await _products.UpdateProduct(productToUpdate);
+
+            if (updatedProduct == null)
+                return BadRequest("Error occured please check details and try again");
+
+            var updatedProductFullDetails = await _products.GetById(id);
+
+            return Ok(updatedProductFullDetails);
         }
     } 
 }

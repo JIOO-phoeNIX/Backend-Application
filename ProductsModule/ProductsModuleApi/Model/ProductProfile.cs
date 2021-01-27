@@ -11,7 +11,7 @@ namespace ProductsModuleApi.Model
     {
         public ProductProfile()
         {
-            CreateMap<CreateProductModel, Products>();
+            CreateMap<ProductModel, Products>();
         }
     }
 }

@@ -31,8 +31,8 @@ namespace ProductModuleDataAccess.Implementations
             }
             catch (Exception ex)
             {
-                return null;            
-            }            
+                return null;
+            }
         }
 
         public async Task DeleteProduct(Products productToDelete)
@@ -74,6 +74,21 @@ namespace ProductModuleDataAccess.Implementations
             product.user = user;
 
             return product;
+        }
+
+        public async Task<Products> UpdateProduct(Products products)
+        {
+            try
+            {
+                var result = _dbContext.products.Update(products);
+                await _dbContext.SaveChangesAsync();
+
+                return result.Entity;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
     }
 }
