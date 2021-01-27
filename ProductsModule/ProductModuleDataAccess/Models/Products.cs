@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace ProductModuleDataAccess.Models
@@ -18,6 +19,8 @@ namespace ProductModuleDataAccess.Models
 
         [Required]
         public int userid { get; set; }
+        [NotMapped]
+        public User user { get; set; } = null;
                
         public int contactid { get; set; }
         public Contacts Contact { get; set; }
