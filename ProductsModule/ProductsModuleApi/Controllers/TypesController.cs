@@ -22,7 +22,7 @@ namespace ProductsModuleApi.Controllers
         [HttpGet("alltypes")]       
         public IActionResult GetAllTypes()
         {
-            var allTypes = _types.GetAll();
+            var allTypes = _types.GetAllTypes();
 
             return Ok(allTypes);
         }

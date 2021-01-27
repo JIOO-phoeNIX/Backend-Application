@@ -4,24 +4,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductModuleDataAccess.Implementations
 {
-    public class TypesService : ITypesService
+    public class ProductsService : IProductsService
     {
         private readonly ProducrModuleDbContext _dbContext;
 
-        public TypesService(ProducrModuleDbContext dbContext)
+        public ProductsService(ProducrModuleDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public List<Types> GetAllTypes()
+        public List<Products> GetAllProducts()
         {
-            var allTypes = _dbContext.types.ToList();
+            var allProducts = _dbContext.products.ToList();
 
-            return allTypes;
+            return allProducts;
         }
     }
 }

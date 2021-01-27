@@ -33,6 +33,8 @@ namespace ProductsModuleApi
             services.AddDbContext<ProducrModuleDbContext>(options => 
                 options.UseMySQL(Configuration.GetConnectionString("ProductModule")));
             services.AddTransient<ITypesService, TypesService>();
+            services.AddTransient<IContactsService, ContactsService>();
+            services.AddTransient<IProductsService, ProductsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

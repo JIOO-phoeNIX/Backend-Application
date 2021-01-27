@@ -12,6 +12,10 @@ namespace ProductModuleDataAccess.Models
         }
 
         public DbSet<Types> types { get; set; }
+        
+        public DbSet<Contacts> contacts { get; set; }
+
+        public DbSet<Products> products { get; set; }
 
     }
 }

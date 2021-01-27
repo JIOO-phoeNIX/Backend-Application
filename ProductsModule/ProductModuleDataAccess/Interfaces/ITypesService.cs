@@ -8,6 +8,6 @@ namespace ProductModuleDataAccess.Interfaces
 {
     public interface ITypesService
     {
-        List<Types> GetAll();
+        List<Types> GetAllTypes();
     }
 }
