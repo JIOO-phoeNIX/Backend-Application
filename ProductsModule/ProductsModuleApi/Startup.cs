@@ -7,6 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ProductModuleDataAccess.Implementations;
+using ProductModuleDataAccess.Interfaces;
+using ProductModuleDataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +30,9 @@ namespace ProductsModuleApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            
+            services.AddDbContext<ProducrModuleDbContext>(options => 
+                options.UseMySQL(Configuration.GetConnectionString("ProductModule")));
+            services.AddTransient<ITypesService, TypesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
