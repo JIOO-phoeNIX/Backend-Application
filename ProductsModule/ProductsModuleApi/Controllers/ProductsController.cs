@@ -64,5 +64,18 @@ namespace ProductsModuleApi.Controllers
 
             return CreatedAtAction(nameof(GetProduct), new { id = productCreated.productsid }, productCreatedFullDetails);            
         }
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            var product = await _products.GetById(id);
+
+            if (product == null)
+                return BadRequest($"Product with id : {id} doesn't exit");
+
+            await _products.DeleteProduct(product);
+
+            return Ok("Deleted successfully");
+        }
     } 
 }

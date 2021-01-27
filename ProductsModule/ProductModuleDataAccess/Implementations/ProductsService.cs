@@ -35,6 +35,12 @@ namespace ProductModuleDataAccess.Implementations
             }            
         }
 
+        public async Task DeleteProduct(Products productToDelete)
+        {
+            _dbContext.Remove(productToDelete);
+            await _dbContext.SaveChangesAsync();
+        }
+
         public async Task<List<Products>> GetAllProducts()
         {
             var allProducts = _dbContext.products

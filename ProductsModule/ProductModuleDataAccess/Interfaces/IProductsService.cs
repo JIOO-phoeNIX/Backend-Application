@@ -13,5 +13,7 @@ namespace ProductModuleDataAccess.Interfaces
         Task<Products> GetById(int id);
 
         Task<Products> CreateProduct(Products products);
+
+        Task DeleteProduct(Products productToDelete);
     }
 }
