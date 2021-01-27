@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProductModuleDataAccess.Models;
 
 namespace ProductsModuleApi.Controllers
 {
@@ -19,7 +20,9 @@ namespace ProductsModuleApi.Controllers
             _types = types;
         }
 
-        [HttpGet("alltypes")]       
+        [HttpGet("alltypes")]
+        [ProducesResponseType(typeof(IEnumerable<Types>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public IActionResult GetAllTypes()
         {
             var allTypes = _types.GetAllTypes();

@@ -52,3 +52,8 @@ C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductsModuleApi\
 C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductsModuleApi\bin\Debug\netcoreapp3.1\ProductModuleDataAccess.dll
 C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductsModuleApi\bin\Debug\netcoreapp3.1\ProductModuleDataAccess.pdb
 C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductsModuleApi\obj\Debug\netcoreapp3.1\ProductsModuleApi.csproj.CopyComplete
+C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductsModuleApi\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductsModuleApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductsModuleApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductsModuleApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\USER\source\repos\Innoloft\Assignment\ProductsModule\ProductsModuleApi\obj\Debug\netcoreapp3.1\ProductsModuleApi.MvcApplicationPartsAssemblyInfo.cs

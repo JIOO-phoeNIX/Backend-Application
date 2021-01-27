@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProductModuleDataAccess.Interfaces;
+using ProductModuleDataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace ProductsModuleApi.Controllers
         }
 
         [HttpGet("allproducts")]
+        [ProducesResponseType(typeof(IEnumerable<Products>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public IActionResult GetAllProducts()
         {
             var allProducts = _products.GetAllProducts();
