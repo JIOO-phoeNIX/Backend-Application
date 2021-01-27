@@ -13,30 +13,35 @@ namespace ProductsModuleApi.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductsService _products;
-        private readonly IUserService _userService;
+        private readonly IProductsService _products;        
 
-        public ProductsController(IProductsService products, IUserService userService)
+        public ProductsController(IProductsService products)
         {
-            _products = products;
-            _userService = userService;
+            _products = products;            
         }
 
         [HttpGet("allproducts")]
+        [HttpGet("")]
         [ProducesResponseType(typeof(IEnumerable<Products>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetAllProducts()
         {
-            var allProducts = _products.GetAllProducts();            
-
-            foreach (var product in allProducts)
-            {
-                var user = await _userService.GetById(product.userid);
-
-                product.user = user;
-            }
+            var allProducts = await _products.GetAllProducts();                      
 
             return Ok(allProducts);
+        }
+
+        [HttpGet("{id:int}")]
+        [ProducesResponseType(typeof(Products), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetProduct(int id)
+        {
+            var product = await _products.GetById(id);
+
+            if (product == null)
+                return BadRequest($"Product with id : {id} doesn't exit");
+
+            return Ok(product);
         }
     }
 }
